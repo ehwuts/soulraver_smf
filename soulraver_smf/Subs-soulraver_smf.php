@@ -74,9 +74,9 @@ function soulraver_smf_add_codes(&$codes) {
 			$id = "chk_" . time() . '_' . mt_rand();
 			$label = empty($txt['spoiler']) ? 'Spoiler' : $txt['spoiler'];
 			
-			$data = '<input type="checkbox" checked="checked" class="sr-smf-toggle-check" id="' . $id . '" value="1">' . "\n" .
-					'<label for="' . $id . '" class="sr-smf-toggle-button">' . $txt['spoiler'] . '</label>' . "\n" .
-					'<div class="sr-smf-toggle-content">' . $data . '</div>';
+			$data = '<label class="sr-smf-toggle-button">' . $label .
+					'<input type="checkbox" checked="checked" class="sr-smf-toggle-check" id="' . $id . '" value="1">' .
+					'<div class="sr-smf-toggle-content">' . $data . '</div></label>';
 		},
 		'block_level' => true
 	);
@@ -84,14 +84,14 @@ function soulraver_smf_add_codes(&$codes) {
 		'tag'         => 'spoiler',
 		'type'        => 'unparsed_equals',
 		'before'      => '$1',
-		'after'       => '</div>',
+		'after'       => '</div></label>',
 		'validate'    => function (&$tag, &$data, $disabled) {
 			global $txt;
 			$id = "chk_" . time() . '_' . mt_rand();
 			$label = empty($data) ? (empty($txt['spoiler']) ? 'Spoiler' : $txt['spoiler']) : $data;
 			
-			$data = '<input type="checkbox" checked="checked" class="sr-smf-toggle-check" id="' . $id . '" value="1">' . "\n" .
-					'<label for="' . $id . '" class="sr-smf-toggle-button">' . $label . '</label>' . "\n" .
+			$data = '<label class="sr-smf-toggle-button">' . $label .
+					'<input type="checkbox" checked="checked" class="sr-smf-toggle-check" id="' . $id . '" value="1">' .
 					'<div class="sr-smf-toggle-content">';
 		},
 		'block_level' => true
