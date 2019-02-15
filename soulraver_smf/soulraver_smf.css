@@ -1,3 +1,6 @@
 .sr-smf-toggle-check { display: none; }
 .sr-smf-toggle-check:checked ~ .sr-smf-toggle-content { display: none; }
-.sr-smf-toggle-button { cursor: pointer; }
+
+.sr-smf-toggle-wrap { display: block; border: 1px solid grey; cursor: pointer; }
+.sr-smf-toggle-label { display: inline-block; padding: 2px; }
+.sr-smf-toggle-content { border: 1px solid grey; padding: 1em; margin: 0.5em; }
