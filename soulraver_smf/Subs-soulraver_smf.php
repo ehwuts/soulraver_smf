@@ -40,7 +40,7 @@ function soulraver_smf_load_theme() {
 }
 
 /* integrate_bbc_buttons */
-function soulraver_smf_add_buttons($buttons) {
+function soulraver_smf_add_buttons(&$buttons) {
 	global $txt;
 	
 	$buttons[count($buttons) - 1][] = array(
@@ -62,24 +62,20 @@ function soulraver_smf_add_buttons($buttons) {
 }
 
 /* integrate_bbc_codes */
-function soulraver_smf_add_codes($codes) {
+function soulraver_smf_add_codes(&$codes) {
 	global $txt;
-	
-	/*
-	<input type="checkbox" checked="checked" class="sr-smf-toggle-check" id="chk_{unix_timestamp}_{Math.Random.NextInt()}">
-	<label for="{$id}" class="sr-smf-toggle-button">$1</label>
-	<div class="sr-smf-toggle-content"></div>
-	*/
 	
 	$codes[] = array(
 		'tag'         => 'spoiler',
 		'type'        => 'unparsed_content',
 		'content'     => '$1',
 		'validate'    => function (&$tag, &$data, $disabled) {
-			$id = "chk_" . (new Date).getTime() . '_' . mt_rand();
+			global $txt;
+			$id = "chk_" . time() . '_' . mt_rand();
+			$label = empty($txt['spoiler']) ? 'Spoiler' : $txt['spoiler'];
 			
-			$data = '<input type="checkbox" checked="checked" class="sr-smf-toggle-check" id="' . $id . '">' . "\n" .
-					'<label for="' . $id . '" class="sr-smf-toggle-button">' . $txt['spoiler']) . '</label>' . "\n" .
+			$data = '<input type="checkbox" checked="checked" class="sr-smf-toggle-check" id="' . $id . '" value="1">' . "\n" .
+					'<label for="' . $id . '" class="sr-smf-toggle-button">' . $txt['spoiler'] . '</label>' . "\n" .
 					'<div class="sr-smf-toggle-content">' . $data . '</div>';
 		},
 		'block_level' => true
@@ -90,13 +86,15 @@ function soulraver_smf_add_codes($codes) {
 		'before'      => '$1',
 		'after'       => '</div>',
 		'validate'    => function (&$tag, &$data, $disabled) {
-			$id = "chk_" . (new Date).getTime() . '_' . mt_rand();
+			global $txt;
+			$id = "chk_" . time() . '_' . mt_rand();
+			$label = empty($data) ? (empty($txt['spoiler']) ? 'Spoiler' : $txt['spoiler']) : $data;
 			
-			$data = '<input type="checkbox" checked="checked" class="sr-smf-toggle-check" id="' . $id . '">' . "\n" .
-					'<label for="' . $id . '" class="sr-smf-toggle-button">' . $txt['spoiler']) . '</label>' . "\n" .
-					'<div class="sr-smf-toggle-content">' . $data;
+			$data = '<input type="checkbox" checked="checked" class="sr-smf-toggle-check" id="' . $id . '" value="1">' . "\n" .
+					'<label for="' . $id . '" class="sr-smf-toggle-button">' . $label . '</label>' . "\n" .
+					'<div class="sr-smf-toggle-content">';
 		},
 		'block_level' => true
 	);
 }
-?
+?>
