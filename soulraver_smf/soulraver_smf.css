@@ -1,0 +1,3 @@
+.sr-smf-toggle-check { display: none; }
+.sr-smf-toggle-check:checked ~ .sr-smf-toggle-content { display: none; }
+.sr-smf-toggle-button { cursor: pointer; }

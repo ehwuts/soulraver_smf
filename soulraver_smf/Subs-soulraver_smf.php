@@ -64,18 +64,30 @@ function soulraver_smf_add_buttons($buttons) {
 function soulraver_smf_add_codes($codes) {
 	global $txt;
 	
+	/*
+	<input type="checkbox" checked="checked" class="sr-smf-toggle-check" id="chk_{unix_timestamp}_{Math.Random.NextInt()}">
+	<label for="{$id}" class="sr-smf-toggle-button">$1</label>
+	<div class="sr-smf-toggle-content"></div>
+	*/
+	
 	$codes[] = array(
-			'tag'         => 'spoiler',
-			'type'        => 'unparsed_content',
-			'content'     => '<div>' . $txt['spoiler'] . '</div><div>$1</div>',
-			'block_level' => true
+		'tag'         => 'spoiler',
+		'type'        => 'unparsed_content',
+		'content'     => '<div>' . $txt['spoiler'] . '</div><div>$1</div>',
+		'validate'    => function (&$tag, &$data, $disabled) {
+			
+		},
+		'block_level' => true
 	);
 	$codes[] = array(
-			'tag'         => 'spoiler',
-			'type'        => 'unparsed_equals',
-			'before'      => '<div>$1</div><div>',
-			'after'       => '</div>',
-			'block_level' => true
+		'tag'         => 'spoiler',
+		'type'        => 'unparsed_equals',
+		'before'      => '<div>$1</div><div>',
+		'after'       => '</div>',
+		'validate'    => function (&$tag, &$data, $disabled) {
+			
+		},
+		'block_level' => true
 	);
 }
 ?
