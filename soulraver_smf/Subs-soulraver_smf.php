@@ -43,6 +43,7 @@ function soulraver_smf_load_theme() {
 function soulraver_smf_add_buttons(&$buttons) {
 	global $txt;
 	
+	/* TODO: Make the buttons actually appear */
 	$buttons[count($buttons) - 1][] = array(
 		'image'       => 'zomg_spoiler',
 		'code'        => 'spoiler',
