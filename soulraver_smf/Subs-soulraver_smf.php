@@ -73,9 +73,7 @@ function soulraver_smf_add_codes(&$codes) {
 			global $txt;
 			$label = empty($txt['spoiler']) ? 'Spoiler' : $txt['spoiler'];
 			
-			$data = '<label class="sr-smf-toggle-wrap"><div class="sr-smf-toggle-label">' . $label . '</div>' .
-					'<input type="checkbox" checked="checked" class="sr-smf-toggle-check" value="1">' .
-					'<div class="sr-smf-toggle-content">' . $data . '</div></label><br>';
+			$data = soulraver_spoiler_main($label) . $data . soulraver_spoiler_tail();
 		},
 		'block_level' => true
 	);
@@ -83,16 +81,23 @@ function soulraver_smf_add_codes(&$codes) {
 		'tag'         => 'spoiler',
 		'type'        => 'unparsed_equals',
 		'before'      => '$1',
-		'after'       => '</div></label><br>',
+		'after'       => soulraver_spoiler_tail(),
 		'validate'    => function (&$tag, &$data, $disabled) {
 			global $txt;
 			$label = empty($data) ? (empty($txt['spoiler']) ? 'Spoiler' : $txt['spoiler']) : $data;
 			
-			$data = '<label class="sr-smf-toggle-wrap"><div class="sr-smf-toggle-label">' . $label . '</div>' .
-					'<input type="checkbox" checked="checked" class="sr-smf-toggle-check" value="1">' .
-					'<div class="sr-smf-toggle-content">';
+			$data = soulraver_spoiler_main($label);
 		},
 		'block_level' => true
 	);
+}
+
+function soulraver_spoiler_main($label) {
+	return '<label class="sr-smf-toggle-wrap"><div class="sr-smf-toggle-label">' . $label . '</div>' .
+			'<input type="checkbox" checked="checked" class="sr-smf-toggle-check" value="1">' .
+			'<div class="sr-smf-toggle-content">';
+}
+function soulraver_spoiler_tail() {
+	return '</div></label><br>';
 }
 ?>
