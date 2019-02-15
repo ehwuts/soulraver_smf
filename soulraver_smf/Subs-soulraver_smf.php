@@ -7,17 +7,18 @@ if (!defined('SMF')) {
 /* integrate_general_mod_settings */
 function soulraver_smf_configs($config_vars) {
 	global $modSettings, $txt;
+	
+	/* don't actually register the configs since it's not respected */
+	//if (isset($config_vars[0])) {
+	//	$config_vars[] = array('title', 'soulraver_smf');
+	//}
 
-	if (isset($config_vars[0])) {
-		$config_vars[] = array('title', 'soulraver_smf');
-	}
+	//if (empty($modSettings['md_title'])) {
+	//	updateSettings(array('soulraver_smf' => $txt['soulraver_smf']));
+	//}
 
-	if (empty($modSettings['md_title'])) {
-		updateSettings(array('soulraver_smf' => $txt['soulraver_smf']));
-	}
-
-	$config_vars[] = array('select', 'enable_spoiler', $txt['toggle_enabled']);
-	$config_vars[] = array('select', 'enable_roll', $txt['toggle_enabled']);
+	//$config_vars[] = array('select', 'enable_spoiler', $txt['toggle_enabled']);
+	//$config_vars[] = array('select', 'enable_roll', $txt['toggle_enabled']);
 	
 }
 
@@ -73,19 +74,27 @@ function soulraver_smf_add_codes($codes) {
 	$codes[] = array(
 		'tag'         => 'spoiler',
 		'type'        => 'unparsed_content',
-		'content'     => '<div>' . $txt['spoiler'] . '</div><div>$1</div>',
+		'content'     => '$1',
 		'validate'    => function (&$tag, &$data, $disabled) {
+			$id = "chk_" . (new Date).getTime() . '_' . mt_rand();
 			
+			$data = '<input type="checkbox" checked="checked" class="sr-smf-toggle-check" id="' . $id . '">' . "\n" .
+					'<label for="' . $id . '" class="sr-smf-toggle-button">' . $txt['spoiler']) . '</label>' . "\n" .
+					'<div class="sr-smf-toggle-content">' . $data . '</div>';
 		},
 		'block_level' => true
 	);
 	$codes[] = array(
 		'tag'         => 'spoiler',
 		'type'        => 'unparsed_equals',
-		'before'      => '<div>$1</div><div>',
+		'before'      => '$1',
 		'after'       => '</div>',
 		'validate'    => function (&$tag, &$data, $disabled) {
+			$id = "chk_" . (new Date).getTime() . '_' . mt_rand();
 			
+			$data = '<input type="checkbox" checked="checked" class="sr-smf-toggle-check" id="' . $id . '">' . "\n" .
+					'<label for="' . $id . '" class="sr-smf-toggle-button">' . $txt['spoiler']) . '</label>' . "\n" .
+					'<div class="sr-smf-toggle-content">' . $data;
 		},
 		'block_level' => true
 	);
