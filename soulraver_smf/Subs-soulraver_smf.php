@@ -1,5 +1,5 @@
 <?php
-/* this is very silly of them to have everywhere */
+/* this is very silly of them to have everywhere but whee consistency */
 if (!defined('SMF')) {
 	die('Hacking attempt...');
 }
@@ -59,3 +59,23 @@ function soulraver_smf_add_buttons($buttons) {
 	//);
 	
 }
+
+/* integrate_bbc_codes */
+function soulraver_smf_add_codes($codes) {
+	global $txt;
+	
+	$codes[] = array(
+			'tag'         => 'spoiler',
+			'type'        => 'unparsed_content',
+			'content'     => '<div>' . $txt['spoiler'] . '</div><div>$1</div>',
+			'block_level' => true
+	);
+	$codes[] = array(
+			'tag'         => 'spoiler',
+			'type'        => 'unparsed_equals',
+			'before'      => '<div>$1</div><div>',
+			'after'       => '</div>',
+			'block_level' => true
+	);
+}
+?
