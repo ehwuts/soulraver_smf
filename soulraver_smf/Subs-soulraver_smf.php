@@ -110,7 +110,7 @@ function soulraver_smf_add_codes(&$codes) {
 		'content'     => '$1',
 		'validate'    => function (&$tag, &$data, $disabled) {
 			global $txt;
-			$label = empty($txt['spoiler']) ? 'Spoiler' : $txt['spoiler'];
+			$label = empty($txt['spoiler']) ? 'Spoiler*' : $txt['spoiler'];
 			
 			$data = soulraver_spoiler_main($label) . $data . soulraver_spoiler_tail();
 		},
@@ -123,7 +123,7 @@ function soulraver_smf_add_codes(&$codes) {
 		'after'       => soulraver_spoiler_tail(),
 		'validate'    => function (&$tag, &$data, $disabled) {
 			global $txt;
-			$label = empty($data) ? (empty($txt['spoiler']) ? 'Spoiler' : $txt['spoiler']) : $data;
+			$label = empty($data) ? (empty($txt['spoiler']) ? 'Spoiler*' : $txt['spoiler']) : $data;
 			
 			$data = soulraver_spoiler_main($label);
 		},
