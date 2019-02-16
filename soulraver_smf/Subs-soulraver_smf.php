@@ -202,10 +202,6 @@ function soulraver_dice_everything($message) {
 		}
 	}
 	
-	for($i = 0; $i < count($locations)) {
-		
-	}
-	
 	$message .= 'loltest';
 	return $message;
 }
