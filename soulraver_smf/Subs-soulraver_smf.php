@@ -53,7 +53,7 @@ function soulraver_smf_add_buttons(&$buttons) {
 	// Define the new buttons
 	$newbuttons = array(
 		array(
-			'image'       => 'zomg_spoiler',
+			'image'       => 'zomg_spoilers',
 			'code'        => 'spoiler',
 			'before'      => '[spoiler]',
 			'after'       => '[/spoiler]',
