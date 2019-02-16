@@ -5,7 +5,7 @@
 	<id>ehwuts:SoulraverSMF</id>
 	<version>0.0.2</version>
 	
-	<!-- add button for dice rolling tags -->
+	<!-- add button for spoiler tags -->
 	<file name="$sourcedir/Subs-Editor.php">
 		<operation>
 			<search position="after"><![CDATA[			array(
@@ -15,7 +15,8 @@
 				'description' => $txt['horizontal_rule']
 			),
 ]]></search>
-			<add><![CDATA[			array(
+			<add><![CDATA[			array(),
+			array(
 				'image' => 'spoiler',
 				'code' => 'spoiler',
 				'before' => '[spoiler]',
