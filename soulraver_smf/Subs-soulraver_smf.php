@@ -48,7 +48,7 @@ function soulraver_smf_add_buttons(&$buttons) {
 	global $txt;
 	
 	$row_position = 2; // Which row are we adding the buttons on (starting at 1)
-	$col_position = 12; // which col are we inserting the buttons
+	$col_position = 15; // which col are we inserting the buttons
 	
 	// Define the new buttons
 	$newbuttons = array(
