@@ -2,8 +2,7 @@
 <!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
 <modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
 	<id>ehwuts:SoulraverSMF</id>
-	<name>Soulraver SMF v0.1</name>
-	<version>0.1</version>
+	<version>0.2</version>
 	
 	<file name="$sourcedir/Subs-Post.php">
 		<operation>
