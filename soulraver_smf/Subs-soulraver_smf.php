@@ -40,15 +40,15 @@ function soulraver_smf_load_theme() {
 }
 
 /* integrate_bbc_buttons */
-/* aside from the function name and our values for $newbuttons, this function's code is sourced from
+/* aside from the function name and our modified values for $row_position, $col_position, and $newbuttons
  * https://github.com/SimpleMachines/SMF-Customization-Team-mods/blob/ce8d9b3c4439ec0f50a0731da12313bfa3304f88/BBC_Overline/Subs-Overlinebbc.php#L42
  * and is @copyright 2011 Simple Machines and licensed under the 3-clause BSD as described at http://www.simplemachines.org/about/smf/license.php
  */
 function soulraver_smf_add_buttons(&$buttons) {
 	global $txt;
 	
-	$row_position = 1; // Which row are we adding the buttons on (starting at 1)
-	$col_position = 4; // which col are we inserting the buttons
+	$row_position = 2; // Which row are we adding the buttons on (starting at 1)
+	$col_position = 12; // which col are we inserting the buttons
 	
 	// Define the new buttons
 	$newbuttons = array(
