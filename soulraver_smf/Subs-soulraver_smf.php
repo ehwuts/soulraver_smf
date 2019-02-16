@@ -139,4 +139,9 @@ function soulraver_spoiler_main($label) {
 function soulraver_spoiler_tail() {
 	return '</div></label><br>';
 }
+
+function soulraver_dice_everything($message) {
+	$message .= 'loltest';
+	return $message;
+}
 ?>

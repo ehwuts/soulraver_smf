@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
+<modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
+	<id>ehwuts:SoulraverSMF</id>
+	<name>Soulraver SMF v0.1</name>
+	<version>0.1</version>
+	
+	<file name="$sourcedir/Subs-Post.php">
+		<operation>
+			<search position="after"><![CDATA[	preparsecode($htmlmessage);]]></search>
+			<add><![CDATA[
+
+	// this is kind of a scary hack which assumes the message content is already sanitized and that integrate_pre_include has already loaded our processing
+	$message = soulraver_dice_everything($message);]]></add>
+		</operation>
+	</file>
+
+</modification>

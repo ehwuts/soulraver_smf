@@ -11,6 +11,7 @@
 		<code>hooks.php</code>
 		<readme parsebbc="true">readme-english.txt</readme>
 		<modification type="file">lang.english.xml</modification>
+		<modification type="file">mythic_dice_injection.xml</modification>
 		<require-file name="Subs-soulraver_smf.php" destination="$sourcedir" />
 		<require-file name="soulraver_smf.css" destination="$themedir/css" />
 		<require-file name="mythic_die.gif" destination="$imagesdir/bbc" />
@@ -20,6 +21,7 @@
 	<uninstall for="2.0 - 2.0.99">
 		<code>hooks.php</code>
 		<modification type="file" reverse="true">lang.english.xml</modification>
+		<modification type="file" reverse="true">mythic_dice_injection.xml</modification>
 		<remove-file name="$sourcedir/Subs-soulraver_smf.php" />
 		<remove-file name="$themedir/css/soulraver_smf.css" />
 		<remove-file name="$imagesdir/bbc/mythic_die.gif" />
