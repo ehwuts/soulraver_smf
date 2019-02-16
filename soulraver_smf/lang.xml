@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
+<modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
+	<id>ehwuts:SoulraverSMF</id>
+	<version>0.0.2</version>
+	
+   <file name="$languagedir/Modifications.english.php">
+      <operation>
+         <search position="end" />
+         <add><![CDATA[$txt['soulraver_smf'] = 'Soulraver Addon Stuff';
+$txt['spoiler'] = 'Spoiler';
+$txt['roll'] = 'Dice';
+$txt['enable_spoiler'] = 'Enable Spoiler BBCode';
+$txt['enable_roll'] = 'Enable Roll BBCode';
+$txt['toggle_enabled'] = array(
+	'enabled' => 'Yes',
+	'disabled' => 'No'
+);
+]]></add>
+      </operation>
+	</file>
+	
+   <file name="$languagedir/Modifications.english-utf8.php" error="skip">
+      <operation>
+         <search position="end" />
+         <add><![CDATA[$txt['soulraver_smf'] = 'Soulraver Addon Stuff';
+$txt['spoiler'] = 'Spoiler';
+$txt['roll'] = 'Dice';
+$txt['enable_spoiler'] = 'Enable Spoiler BBCode';
+$txt['enable_roll'] = 'Enable Roll BBCode';
+$txt['toggle_enabled'] = array(
+	'enabled' => 'Yes',
+	'disabled' => 'No'
+);
+]]></add>
+      </operation>
+	</file>
+	
+   <file name="$languagedir/Modifications.italian.php" error="skip">
+      <operation>
+         <search position="end" />
+         <add><![CDATA[$txt['soulraver_smf'] = 'Soulraver Addon Stuff';
+$txt['spoiler'] = 'Spoiler';
+$txt['roll'] = 'Dadi';
+$txt['enable_spoiler'] = 'Abilita Spoiler BBCode';
+$txt['enable_roll'] = 'Abilita Roll BBCode';
+$txt['toggle_enabled'] = array(
+	'enabled' => 'Sì',
+	'disabled' => 'No'
+);
+]]></add>
+      </operation>
+	</file>
+	
+   <file name="$languagedir/Modifications.italian-utf8.php" error="skip">
+      <operation>
+         <search position="end" />
+         <add><![CDATA[$txt['soulraver_smf'] = 'Soulraver Addon Stuff';
+$txt['spoiler'] = 'Spoiler';
+$txt['roll'] = 'Dadi';
+$txt['enable_spoiler'] = 'Abilita Spoiler BBCode';
+$txt['enable_roll'] = 'Abilita Roll BBCode';
+$txt['toggle_enabled'] = array(
+	'enabled' => 'S&igrave;',
+	'disabled' => 'No'
+);
+]]></add>
+      </operation>
+	</file>
+	
+   <file name="$languagedir/Modifications.portuguese_brazilian.php" error="skip">
+      <operation>
+         <search position="end" />
+         <add><![CDATA[$txt['soulraver_smf'] = 'Soulraver Addon Stuff';
+$txt['spoiler'] = 'Spoiler';
+$txt['roll'] = 'Dados';
+$txt['enable_spoiler'] = 'Ativar o BBCode do Spoiler';
+$txt['enable_roll'] = 'Ativar BBCode de rolo';
+$txt['toggle_enabled'] = array(
+	'enabled' => 'Sim',
+	'disabled' => 'Não'
+);]]></add>
+      </operation>
+	</file>
+	
+   <file name="$languagedir/Modifications.portuguese_brazilian-utf8.php" error="skip">
+      <operation>
+         <search position="end" />
+         <add><![CDATA[$txt['soulraver_smf'] = 'Soulraver Addon Stuff';
+$txt['spoiler'] = 'Spoiler';
+$txt['roll'] = 'Dados';
+$txt['enable_spoiler'] = 'Ativar o BBCode do Spoiler';
+$txt['enable_roll'] = 'Ativar BBCode de rolo';
+$txt['toggle_enabled'] = array(
+	'enabled' => 'Sim',
+	'disabled' => 'N&atilde;o'
+);]]></add>
+      </operation>
+	</file>
+	
+   <file name="$languagedir/Modifications.russian.php" error="skip">
+      <operation>
+         <search position="end" />
+         <add><![CDATA[$txt['soulraver_smf'] = 'Soulraver Addon Stuff';
+$txt['spoiler'] = 'спойлер';
+$txt['roll'] = 'кости';
+$txt['enable_spoiler'] = 'Включить спойлер BBCode';
+$txt['enable_roll'] = 'Включить бросок BBCode';
+$txt['toggle_enabled'] = array(
+	'enabled' => 'Да',
+	'disabled' => 'нет'
+);]]></add>
+      </operation>
+	</file>
+	
+   <file name="$languagedir/Modifications.russian-utf8.php" error="skip">
+      <operation>
+         <search position="end" />
+         <add><![CDATA[$txt['soulraver_smf'] = 'Soulraver Addon Stuff';
+$txt['spoiler'] = 'спойлер';
+$txt['roll'] = 'кости';
+$txt['enable_spoiler'] = 'Включить спойлер BBCode';
+$txt['enable_roll'] = 'Включить бросок BBCode';
+$txt['toggle_enabled'] = array(
+	'enabled' => 'Да',
+	'disabled' => 'нет'
+);]]></add>
+      </operation>
+	</file>
+	
+</modification>
