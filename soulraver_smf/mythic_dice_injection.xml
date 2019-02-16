@@ -7,11 +7,12 @@
 	
 	<file name="$sourcedir/Subs-Post.php">
 		<operation>
-			<search position="after"><![CDATA[	preparsecode($htmlmessage);]]></search>
+			<search position="before"><![CDATA[	preparsecode($htmlmessage);]]></search>
 			<add><![CDATA[
 
 	// this is kind of a scary hack which assumes the message content is already sanitized and that integrate_pre_include has already loaded our processing
-	$message = soulraver_dice_everything($message);]]></add>
+	$message = soulraver_dice_everything($message);
+]]></add>
 		</operation>
 	</file>
 
