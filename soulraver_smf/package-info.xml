@@ -2,8 +2,8 @@
 <!DOCTYPE package-info SYSTEM "http://www.simplemachines.org/xml/package-info">
 <package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
 	<id>ehwuts:SoulraverSMF</id>
-	<name>Soulraver SMF</name>
-	<version>0.0.1</version>
+	<name>Soulraver SMF v0.1</name>
+	<version>0.1</version>
 	<homepage>http://www.soulraver.net</homepage>
 	<type>modification</type>
 
