@@ -162,6 +162,7 @@ function soulraver_dice_everything($message) {
 		
 		preg_match_all($regex_dice_groups, $dice_groups, $matches_dice);
 		
+		$breakdown = '';
 		for ($j = 0; $j < count($matches_dice); $j++) {
 			/* $matches_dice
 			 * 0 => full match
@@ -176,22 +177,25 @@ function soulraver_dice_everything($message) {
 			
 			
 		}
-		$csstotal = '';
-		if ($target !== '') {
-			if (($direction == '>' && $total > $target) ||
-			    ($direction == '>=' && $total >= $target) ||
-			    ($direction == '<' && $total < $target) ||
-			    ($direction == '<=' && $total <= $target)) {
-				$total = 'Success';
-			} else {
-				$total = 'Failure';
+		
+		if ($breakdown != '') {
+			$csstotal = '';
+			if ($target !== '') {
+				if (($direction == '>' && $total > $target) ||
+					($direction == '>=' && $total >= $target) ||
+					($direction == '<' && $total < $target) ||
+					($direction == '<=' && $total <= $target)) {
+					$total = 'Success';
+				} else {
+					$total = 'Failure';
+				}
+				
+				$csstotal = ' class="' . ($total == 'Success' ? 'roll_success' : 'roll_failure') . '"';
 			}
 			
-			$csstotal = ' class="' . ($total == 'Success' ? 'roll_success' : 'roll_failure') . '"';
+			$summary = $title . ' ' . '<strong' . $csstotal . '>' . $total . '</strong>';
+			$output = soulraver_spoiler_main($summary) . $breakdown . soulraver_spoiler_tail();		
 		}
-		
-		$summary = $title . ' ' . '<strong' . $csstotal . '>' . $total . '</strong>';
-		$output = soulraver_spoiler_main($summary) . $breakdown . soulraver_spoiler_tail();		
 		
 		if ($output != '') {
 			$message = substr_replace($message, $output, strpos($input), count($input));
