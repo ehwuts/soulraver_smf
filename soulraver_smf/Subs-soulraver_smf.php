@@ -59,14 +59,14 @@ function soulraver_smf_add_buttons(&$buttons) {
 			'after'       => '[/spoiler]',
 			'description' => $txt['spoiler']
 		),
-		/*
+		
 		array(
 			'image'       => 'mythic_die',
 			'code'        => 'roll',
 			'before'      => '[roll]',
 			'after'       => '[/roll]',
 			'description' => $txt['roll']
-		)*/
+		)
 	);
 	
 	// Move from x,y coordinates to array values
