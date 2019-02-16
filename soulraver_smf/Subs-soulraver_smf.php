@@ -141,6 +141,67 @@ function soulraver_spoiler_tail() {
 }
 
 function soulraver_dice_everything($message) {
+	global $txt;
+	
+	$regex_outer = '\\[roll(?:=(\w+)(?:,(>|<|>=|<=|=)?\+?([-]?\d+))?)?\]([^\[]+)\[\/roll\]/ig';
+	$regex_dice_groups = '/([+-])?(?:(\d+)m)?(\d*)d(F|\d+)(?:([+-])([\d]+))?((?:(?:v[\d]*)|(?:\^[\d]*)|(?:k[\d]*)|(?:r[\d]*)|(?:\*(?:[\d]+(?:\.[\d]+)?))|(?:\/(?:[\d]+(?:\.[\d]+))?)|(?:e[\d]*)|(?:s[\d]*)|c|a|(?:x[\d]*)|(?:u[\d]*))*)/g';
+	$regex_dice_group_modifiers = '/([dv\^kr\*\/escax])(\d+(?:\.\d+)?)?(?: |$)/g';
+	
+	preg_match_all($regex_outer, $output, $matches);
+	
+	// TODO: find the doc with all the different processing descriptors
+	for ($i = 0; $i < count($matches); $i++) {
+		$input = $matches[0][$i];
+		$title = empty($matches[1][$i]) ? $txt['roll'] : $matches[1][$i];
+		$direction = empty($matches[2][$i]) ? '>' : $matches[2][$i];
+		$target = $matches[3][$i];
+		$dice_groups = $matches[4][$i];
+		$total = 0;
+		
+		$output = '';
+		
+		preg_match_all($regex_dice_groups, $dice_groups, $matches_dice);
+		
+		for ($j = 0; $j < count($matches_dice); $j++) {
+			/* $matches_dice
+			 * 0 => full match
+			 * 1 => optional +- sign for entire group
+			 * 2 => optional count for 'm' 
+			 * 3 => optional #d
+			 * 4 => d(#) or dF
+			 * 5 => sign for optional [6]
+			 * 6 => optional flat numeric adjustment
+			 * 7 => optional group modifiers
+			*/
+			
+			
+		}
+		$csstotal = '';
+		if ($target !== '') {
+			if (($direction == '>' && $total > $target) ||
+			    ($direction == '>=' && $total >= $target) ||
+			    ($direction == '<' && $total < $target) ||
+			    ($direction == '<=' && $total <= $target)) {
+				$total = 'Success';
+			} else {
+				$total = 'Failure';
+			}
+			
+			$csstotal = ' class="' . ($total == 'Success' ? 'roll_success' : 'roll_failure') . '"';
+		}
+		
+		$summary = $title . ' ' . '<strong' . $csstotal . '>' . $total . '</strong>';
+		$output = soulraver_spoiler_main($summary) . $breakdown . soulraver_spoiler_tail();		
+		
+		if ($output != '') {
+			$message = substr_replace($message, $output, strpos($input), count($input));
+		}
+	}
+	
+	for($i = 0; $i < count($locations)) {
+		
+	}
+	
 	$message .= 'loltest';
 	return $message;
 }
